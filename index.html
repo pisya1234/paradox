@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Paradox Client | Элитные модификации для Minecraft</title>
-    <!-- Шрифты и базовые стили -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -21,7 +20,6 @@
             overflow-x: hidden;
         }
 
-        /* Анимированный градиентный фон с зернистостью */
         .bg-aura {
             position: fixed;
             top: 0;
@@ -49,7 +47,6 @@
             100% { transform: translate(-5%, -8%) rotate(2deg); opacity: 1; }
         }
 
-        /* канва для частиц (звездная пыль) */
         #particleCanvas {
             position: fixed;
             top: 0;
@@ -69,7 +66,6 @@
             z-index: 2;
         }
 
-        /* header с логотипом */
         .header {
             display: flex;
             justify-content: space-between;
@@ -125,7 +121,6 @@
             text-shadow: 0 0 5px #5f7ef2;
         }
 
-        /* главный герой */
         .hero {
             display: flex;
             flex-direction: column;
@@ -220,7 +215,6 @@
             transform: translateY(-2px);
         }
 
-        /* карточки фич */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -399,25 +393,22 @@
     <div class="info-panel">
         <p style="font-size: 1.2rem; font-weight: 500;">✨ Paradox Client поддерживает Fabric ✨</p>
         <p style="margin-top: 0.5rem;">Кастомные настройки рендера и эксклюзивные функции для полного погружения.</p>
-        <div class="download-tip">🔥 Версия 2.0 уже доступна — испытай новый уровень Minecraft!</div>
+        <div class="download-tip">🔥 Версия 2.0 уже доступна - испытай новый уровень Minecraft!</div>
     </div>
 
     <footer>
         <p>© 2026 Paradox Client - модификация для комфортной игры. Неофициальный проект, вдохновлённый чит клиентами.</p>
-        <p style="margin-top: 0.5rem;">Все торговые марки принадлежат их владельцам. Minecraft — товарный знак Mojang Studios.</p>
+        <p style="margin-top: 0.5rem;">Все торговые марки принадлежат их владельцам. Minecraft - товарный знак Mojang Studios.</p>
     </footer>
 </div>
 
-<!-- всплывающий тост для уведомлений -->
 <div id="toastMsg" class="toast-notify">
     <span id="toastIcon">✅</span>
     <span id="toastText">Готово</span>
 </div>
 
 <script>
-    // ---------- JS для полностью работающего сайта: интерактивные кнопки + эффект частиц ----------
-    
-    // 1. Уведомления (тост)
+
     const toastEl = document.getElementById('toastMsg');
     const toastTextSpan = document.getElementById('toastText');
     const toastIconSpan = document.getElementById('toastIcon');
@@ -451,25 +442,23 @@
 downloadBtn.addEventListener('click', (e) => {
     e.preventDefault();
     
-    const FILE_ID = 'https://drive.google.com/file/d/1q4LEZB4f8DeDsz3_sJ5Bj7Ap-DA_eBEI/view?usp=sharing'; // Замените на ваш ID
+    const downloadUrl = 'https://github.com/pisya1234/paradox/releases/download/v2.0/paradox.client.upgrade.rar';
     
-    const directDownloadUrl = `https://drive.google.com/uc?export=download&id=${FILE_ID}`;
+    const a = document.createElement('a');
+    a.href = downloadUrl;
+    a.download = 'paradox.client.upgrade.rar'; 
+    a.target = '_blank'; 
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
     
-    showToast('⚡ Подготовка Paradox Client к загрузке...', true, '📦');
-    
-    const link = document.createElement('a');
-    link.href = directDownloadUrl;
-    link.download = ''; 
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
+    showToast('⚡ Загрузка Paradox Client началась!', true, '📦');
     downloadBtn.style.transform = 'scale(0.98)';
     setTimeout(() => { downloadBtn.style.transform = ''; }, 150);
     
     setTimeout(() => {
-        showToast('✅ Загрузка Paradox Client началась!', true, '🎉');
-    }, 1000);
+        showToast('✅ Файл успешно загружен!', true, '🎉');
+    }, 1500);
 });
 
     const navHome = document.getElementById('navHome');
@@ -479,7 +468,7 @@ downloadBtn.addEventListener('click', (e) => {
     navHome.addEventListener('click', (e) => {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        showToast('🏠 Домой — главная страница Paradox Client', false, '🏠');
+        showToast('🏠 Домой - главная страница Paradox Client', false, '🏠');
     });
     navMods.addEventListener('click', (e) => {
         e.preventDefault();
