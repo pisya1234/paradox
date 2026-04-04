@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Paradox Client | Функции</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #05070a;
+            font-family: 'Inter', sans-serif;
+            color: #eef2ff;
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        .bg-aura {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at 20% 30%, rgba(15, 25, 45, 0.9), #03060b 80%);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: #1a0b2e;
+            width: 100%;
+            z-index: 1000;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #a855f7;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
+        }
+
+        .logo {
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFFFFF, #c084fc, #a855f7);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: #b9c8ff;
+            text-decoration: none;
+            transition: 0.3s;
+            padding: 8px 16px;
+            border-radius: 30px;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            background: rgba(139, 92, 246, 0.2);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #e9d5ff, #a855f7);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .functions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .func-card {
+            background: rgba(12, 18, 32, 0.65);  
+            backdrop-filter: blur(12px);        
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(12, 18, 32, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: 0.2s;
+        }
+
+        .func-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(168, 85, 247, 0.6);
+            background: rgba(18, 26, 44, 0.8);
+        }
+
+        .func-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .func-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #c084fc;
+        }
+
+        .func-card p {
+            color: #b9c8ff;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #a855f7;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6a7bb0;
+            border-top: 1px solid rgba(90, 110, 180, 0.2);
+            padding-top: 2rem;
+        }
+
+        #snowCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 700px) {
+            .container { padding: 1rem; }
+            .header { flex-direction: column; align-items: start; }
+            .nav-links { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-aura"></div>
+
+<div class="container">
+    <div class="header">
+        <div class="logo">PARADOX CLIENT</div>
+        <div class="nav-links">
+            <a href="index.html">Главная</a>
+            <a href="functions.html" style="background: rgba(139, 92, 246, 0.2);">Функции</a>
+            <a href="index.html">Сообщество</a>
+        </div>
+    </div>
+
+    <h1>Возможности Paradox Client</h1>
+    <div class="functions-grid">
+        <div class="func-card"><div class="func-icon">⚔️</div><h3>Killaura</h3><p>Автоматические атаки по игрокам/мобам с настройкой дальности и задержки.</p></div>
+        <div class="func-card"><div class="func-icon">👁️</div><h3>ESP</h3><p>Подсветка игроков, мобов и ценных предметов сквозь стены.</p></div>
+        <div class="func-card"><div class="func-icon">🏃</div><h3>Speed</h3><p>Увеличение скорости передвижения с разными режимами.</p></div>
+        <div class="func-card"><div class="func-icon">🪂</div><h3>Fly</h3><p>Режим полёта на выживании (работает не на всех серверах).</p></div>
+        <div class="func-card"><div class="func-icon">🔍</div><h3>X-Ray</h3><p>Просмотр руд и сундуков сквозь блоки.</p></div>
+        <div class="func-card"><div class="func-icon">🎨</div><h3>Custom UI</h3><p>Полная настройка интерфейса: цвета, позиции, прозрачность.</p></div>
+        <div class="func-card"><div class="func-icon">🌅</div><h3>Visual</h3><p>Настройка красивых визуалов.</p></div>
+        <div class="func-card"><div class="func-icon">✨</div><h3>Fullbright</h3><p>Постоянная яркость (не нужны факелы в пещерах).</p></div>
+        <div class="func-card"><div class="func-icon">📦</div><h3>ChestStealer</h3><p>Автоматический сбор предметов из сундуков.</p></div>
+        <div class="func-card"><div class="func-icon">🚪</div><h3>AutoLeave</h3><p>Автоматический выход с сервера при опасности.</p></div>
+        <div class="func-card"><div class="func-icon">🍎</div><h3>AppleFarm</h3><p>Садит дерево, ломает листву и фармит яблоки.</p></div>
+        <div class="func-card"><div class="func-icon">⚙️</div><h3>Other</h3><p>Множество других полезных функций.</p></div>
+    </div>
+    <a href="index.html" class="back-link">← Вернуться на главную</a>
+    <footer><p>© 2026 Paradox Client - модификация для комфортной игры. Неофициальный проект, вдохновлённый чит клиентами.</p></footer>
+</div>
+
+<canvas id="snowCanvas"></canvas>
+
+<script>
+    // ========== СНЕГ ==========
+    (function() {
+        const canvas = document.getElementById('snowCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        let snowflakes = [];
+        
+        function resizeCanvas() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        
+        function createSnowflakes() {
+            const count = Math.floor(width / 3);
+            for (let i = 0; i < count; i++) {
+                snowflakes.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    radius: Math.random() * 4 + 1,
+                    speedX: (Math.random() - 0.5) * 0.3,
+                    speedY: Math.random() * 1.5 + 0.5,
+                    opacity: Math.random() * 0.5 + 0.2
+                });
+            }
+        }
+        
+        function drawSnow() {
+            if (!ctx) return;
+            ctx.clearRect(0, 0, width, height);
+            
+            for (let flake of snowflakes) {
+                ctx.beginPath();
+                ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${flake.opacity})`;
+                ctx.fill();
+                
+                flake.x += flake.speedX;
+                flake.y += flake.speedY;
+                
+                if (flake.x > width) flake.x = 0;
+                if (flake.x < 0) flake.x = width;
+                if (flake.y > height) {
+                    flake.y = 0;
+                    flake.x = Math.random() * width;
+                }
+            }
+            
+            requestAnimationFrame(drawSnow);
+        }
+        
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            snowflakes = [];
+            createSnowflakes();
+        });
+        
+        resizeCanvas();
+        createSnowflakes();
+        drawSnow();
+    })();
+</script>
+
+</body>
+</html>
