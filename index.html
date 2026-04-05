@@ -97,6 +97,7 @@
             display: flex;
             gap: 1.5rem;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
@@ -111,18 +112,17 @@
             color: white;
             background: rgba(168, 85, 247, 0.3);
         }
-        
+
         .telegram-login-btn {
             background: #27a5e7;
             color: white;
             padding: 8px 16px;
             border-radius: 30px;
-            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
             font-weight: 500;
             transition: 0.3s;
-            cursor: pointer;
-            border: none;
-            font-family: inherit;
         }
         .telegram-login-btn:hover {
             background: #1f8bc4;
@@ -136,12 +136,6 @@
             background: rgba(168, 85, 247, 0.2);
             padding: 5px 15px;
             border-radius: 30px;
-        }
-        .user-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
         }
 
         .hero {
@@ -198,8 +192,40 @@
         .button-group {
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
+            align-items: center;
+            gap: 1.5rem;
             margin-top: 1rem;
+            width: 100%;
+        }
+
+        .btn-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .btn-tooltip {
+            visibility: hidden;
+            opacity: 0;
+            width: 200px;
+            background: #1a0b2e;
+            color: #c084fc;
+            text-align: center;
+            padding: 8px 12px;
+            border-radius: 12px;
+            border: 1px solid #a855f7;
+            position: absolute;
+            z-index: 10;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+        }
+        .btn-wrapper:hover .btn-tooltip {
+            visibility: visible;
+            opacity: 1;
         }
 
         .btn {
@@ -209,10 +235,6 @@
             font-size: 1rem;
             transition: all 0.25s ease;
             cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
             border: none;
             font-family: inherit;
             backdrop-filter: blur(4px);
@@ -247,8 +269,7 @@
             border: 1px solid rgba(168, 85, 247, 0.3);
             width: 100%;
             max-width: 400px;
-            margin-left: center;
-            margin-right: center;
+        }
 
         .code-input {
             padding: 12px 20px;
@@ -316,7 +337,6 @@
             transition: opacity 0.3s, transform 0.3s;
             pointer-events: none;
             font-size: 0.95rem;
-            letter-spacing: 0.3px;
             display: flex;
             gap: 10px;
             align-items: center;
@@ -326,64 +346,13 @@
             transform: translateX(-50%) translateY(0px);
         }
 
-        .btn-wrapper {
-    position: relative;
-    display: inline-block;
-}
-.btn-tooltip {
-    visibility: hidden;
-    opacity: 0;
-    width: 200px;
-    background: #1a0b2e;
-    color: #c084fc;
-    text-align: center;
-    padding: 8px 12px;
-    border-radius: 12px;
-    border: 1px solid #a855f7;
-    position: absolute;
-    z-index: 10;
-    bottom: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.8rem;
-    font-weight: normal;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    pointer-events: none;
-}
-.btn-wrapper:hover .btn-tooltip {
-    visibility: visible;
-    opacity: 1;
-}
         @media (max-width: 700px) {
-            .container {
-                padding: 1.5rem;
-            }
-            .header {
-                flex-direction: column;
-                align-items: start;
-            }
-            .button-group {
-                justify-content: center;
-                align-items: center;
-            }
-            .hero {
-                text-align: center;
-                align-items: center;
-            }
-            .description {
-                text-align: center;
-            }
-            .highlight {
-                text-align: left;
-            }
-            .code-input {
-                max-width: 200px;
-                font-size: 0.85rem;
-            }
-            .activation-area {
-                padding: 1rem;
-            }
+            .container { padding: 1.5rem; }
+            .header { flex-direction: column; align-items: start; }
+            .hero { align-items: center; text-align: center; }
+            .highlight { text-align: left; }
+            .code-input { max-width: 200px; font-size: 0.85rem; }
+            .activation-area { padding: 1rem; }
         }
     </style>
 </head>
@@ -418,25 +387,27 @@
                 🎮 Отличный интерфейс | Продвинутые визуалы | Огромный функционал
             </div>
             
-<div class="button-group">
-    <div class="btn-wrapper">
-        <button class="btn btn-primary" id="buyBtn" onclick="window.open('https://funpay.com/', '_blank')">
-            💎 КУПИТЬ КЛЮЧ
-        </button>
-        <div class="btn-tooltip">
-        🗓️ Месяц — 1$/45₴/80₽<br>
-        ♾️ Всегда — 3$/130₴/240₽
-        </div>
-    </div>
-    <div class="activation-area">
-        <p style="margin-bottom: 10px; color: #c084fc;">🔑 Уже есть ключ?</p>
-        <input type="text" id="accessCode" class="code-input" placeholder="Введите ключ" autocomplete="off">
-        <button class="btn btn-outline" id="activateBtn" style="margin-top: 10px;">АКТИВИРОВАТЬ</button>
-    </div>
-    <div id="downloadArea" style="display: none; margin-top: 10px;">
-        <button class="btn btn-primary" id="downloadFileBtn">📥 СКАЧАТЬ КЛИЕНТ</button>
-    </div>
-</div>
+            <div class="button-group">
+                <div class="btn-wrapper">
+                    <button class="btn btn-primary" id="buyBtn" onclick="window.open('https://funpay.com/', '_blank')">
+                        💎 КУПИТЬ КЛЮЧ
+                    </button>
+                    <div class="btn-tooltip">
+                        🗓️ Месяц — 1$/45₴/80₽<br>
+                        ♾️ Всегда — 3$/130₴/240₽
+                    </div>
+                </div>
+                
+                <div class="activation-area">
+                    <p style="margin-bottom: 10px; color: #c084fc;">🔑 Уже есть ключ?</p>
+                    <input type="text" id="accessCode" class="code-input" placeholder="Введите ключ" autocomplete="off">
+                    <button class="btn btn-outline" id="activateBtn" style="margin-top: 10px;">АКТИВИРОВАТЬ</button>
+                </div>
+
+                <div id="downloadArea" style="display: none; margin-top: 10px;">
+                    <button class="btn btn-primary" id="downloadFileBtn">📥 СКАЧАТЬ КЛИЕНТ</button>
+                </div>
+            </div>
         </div>
 
         <div class="info-panel">
@@ -458,8 +429,8 @@
 </div>
 
 <div id="toastMsg" class="toast-notify">
-    <span id="toastIcon">✅</span>
-    <span id="toastText">Готово</span>
+    <span id="toastIcon"></span>
+    <span id="toastText"></span>
 </div>
 
 <script>
@@ -580,27 +551,27 @@
     function initTelegramButton() {
         const container = document.getElementById('telegramLoginContainer');
         if (!currentTelegramId) {
-        container.innerHTML = '';
-        const script = document.createElement('script');
-        script.src = 'https://telegram.org/js/telegram-widget.js?22';
-        script.async = true;
-        script.setAttribute('data-telegram-login', 'paradoxkeybot');
-        script.setAttribute('data-size', 'medium');
-        script.setAttribute('data-radius', '30');
-        script.setAttribute('data-request-access', 'write');
-        script.setAttribute('data-onauth', 'onTelegramAuth(user)');
-        script.setAttribute('data-userpic', 'false');
-        container.appendChild(script);
-    } else {
-        const username = localStorage.getItem('telegram_username') || 'Пользователь';
-        container.innerHTML = `
-            <div class="user-info">
-                <span>👤 ${username}</span>
-                <button class="telegram-login-btn" onclick="logout()">Выйти</button>
-            </div>
-        `;
+            container.innerHTML = '';
+            const script = document.createElement('script');
+            script.src = 'https://telegram.org/js/telegram-widget.js?22';
+            script.async = true;
+            script.setAttribute('data-telegram-login', 'paradoxkeybot');
+            script.setAttribute('data-size', 'medium');
+            script.setAttribute('data-radius', '30');
+            script.setAttribute('data-request-access', 'write');
+            script.setAttribute('data-onauth', 'onTelegramAuth(user)');
+            script.setAttribute('data-userpic', 'false');
+            container.appendChild(script);
+        } else {
+            const username = localStorage.getItem('telegram_username') || 'Пользователь';
+            container.innerHTML = `
+                <div class="user-info">
+                    <span>👤 ${username}</span>
+                    <button class="telegram-login-btn" onclick="logout()">Выйти</button>
+                </div>
+            `;
+        }
     }
-}
     (function() {
         const canvas = document.getElementById('snowCanvas');
         if (!canvas) return;
