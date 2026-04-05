@@ -47,16 +47,16 @@
             100% { transform: translate(-5%, -8%) rotate(2deg); opacity: 1; }
         }
 
-#snowCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0.7;
-}
+        #snowCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.7;
+        }
 
         .container {
             max-width: 1280px;
@@ -66,77 +66,83 @@
             z-index: 2;
         }
 
-.header {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem 2rem;
-    
-    background: rgba(161, 17, 197, 0.349);
-    width: 100%;
-    left: 0;
-    right: 0;
-    
-    z-index: 1000;
-    margin-bottom: 2rem;
+        .header {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: #1a0b2e;
+            width: 100%;
+            z-index: 1000;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #a855f7;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
+        }
 
-    border-bottom: 2px solid rgba(161, 17, 197, 0.349);
-    border-radius: 0 0 20px 20px;
-}
+        .logo {
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFFFFF, #c084fc, #a855f7);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
 
-.header {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem 2rem;
-    
-    background: #1a0b2e;
-    width: 100%;
-    left: 0;
-    right: 0;
-    
-    z-index: 1000;
-    margin-bottom: 2rem;
-    
-    border-bottom: 2px solid #a855f7;
-    border-radius: 0 0 20px 20px;
-    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
-}
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
 
-.logo {
-    font-size: 1.9rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #FFFFFF, #c084fc, #a855f7);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
+        .nav-links a {
+            color: #e9d5ff;
+            text-decoration: none;
+            transition: 0.3s;
+            padding: 8px 16px;
+            border-radius: 30px;
+        }
 
-.nav-links {
-    display: flex;
-    gap: 1.5rem;
-}
+        .nav-links a:hover {
+            color: white;
+            background: rgba(168, 85, 247, 0.3);
+        }
+        
+        .telegram-login-btn {
+            background: #27a5e7;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+        .telegram-login-btn:hover {
+            background: #1f8bc4;
+            transform: scale(1.02);
+        }
 
-.nav-links a {
-    color: #e9d5ff;
-    text-decoration: none;
-    transition: 0.3s;
-    padding: 8px 16px;
-    border-radius: 30px;
-}
-
-.nav-links a:hover {
-    color: white;
-    background: rgba(168, 85, 247, 0.3);
-}
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(168, 85, 247, 0.2);
+            padding: 5px 15px;
+            border-radius: 30px;
+        }
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
 
         .hero {
             display: flex;
@@ -180,7 +186,7 @@
         }
 
         .highlight {
-            color: rgbargb(255, 255, 255);
+            color: rgb(255, 255, 255);
             font-weight: 500;
             border-left: 3px solid rgba(161, 17, 197, 0.349);
             padding-left: 1rem;
@@ -189,8 +195,9 @@
 
         .button-group {
             display: flex;
+            flex-direction: column;
+            align-items: flex-start;
             gap: 1.2rem;
-            flex-wrap: wrap;
             margin-top: 1rem;
         }
 
@@ -210,20 +217,56 @@
             backdrop-filter: blur(4px);
         }
 
+        .btn-primary {
+            background: linear-gradient(135deg, #a855f7, #7c3aed);
+            color: white;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+        }
+
         .btn-outline {
             background: rgba(161, 17, 197, 0.349);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(95, 126, 242, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             color: white;
         }
         .btn-outline:hover {
             background: rgba(95, 126, 242, 0.2);
-            border-color: #8aaaff;
             transform: translateY(-2px);
         }
 
-        
+        .activation-area {
+            background: rgba(12, 18, 32, 0.65);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            text-align: center;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            width: 100%;
+            max-width: 400px;
+        }
 
-        
+        .code-input {
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: 1px solid #a855f7;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 100%;
+            max-width: 250px;
+            font-size: 1rem;
+            outline: none;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        .code-input:focus {
+            border-color: #c084fc;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+        }
+
         .info-panel {
             background: rgba(8, 12, 22, 0.7);
             backdrop-filter: blur(8px);
@@ -292,6 +335,7 @@
             }
             .button-group {
                 justify-content: center;
+                align-items: center;
             }
             .hero {
                 text-align: center;
@@ -303,53 +347,80 @@
             .highlight {
                 text-align: left;
             }
+            .code-input {
+                max-width: 200px;
+                font-size: 0.85rem;
+            }
+            .activation-area {
+                padding: 1rem;
+            }
         }
     </style>
+</head>
+<body>
 
 <div class="bg-aura"></div>
 <canvas id="snowCanvas"></canvas>
 
 <div class="container">
     <div class="header">
-        <div class="logo-area">
-            <div class="logo">PARADOX CLIENT</div>
-        </div>
+        <div class="logo">PARADOX CLIENT</div>
         <div class="nav-links">
-            <a href="#" id="navHome">Главная</a>
+            <a href="index.html">Главная</a>
             <a href="functions.html">Функции</a>
             <a href="https://t.me/kimp1ntyao666" target="_blank">Сообщество</a>
+            <div id="telegramLoginContainer"></div>
         </div>
     </div>
 
-    <div class="hero">
-        <div class="hero-badge">
-            <span>⚡ ВЫСШАЯ ОПТИМИЗАЦИЯ</span>
-            <span>✦</span>
-            <span>НОВЫЙ УРОВЕНЬ ИГРЫ</span>
+    <div id="mainContent" style="display: none;">
+        <div class="hero">
+            <div class="hero-badge">
+                <span>⚡ ВЫСШАЯ ОПТИМИЗАЦИЯ</span>
+                <span>✦</span>
+                <span>НОВЫЙ УРОВЕНЬ ИГРЫ</span>
+            </div>
+            <h1>Преображение опыта<br>в Minecraft</h1>
+            <div class="description">
+                Paradox Client - чит клиент с множеством функций, предназначающихся для улучшения вашей игры!
+            </div>
+            <div class="highlight">
+                🎮 Отличный интерфейс | Продвинутые визуалы | Огромный функционал
+            </div>
+            
+            <div class="button-group">
+                <button class="btn btn-primary" id="buyBtn" onclick="window.open('https://funpay.com/', '_blank')">
+                    💎 КУПИТЬ КЛЮЧ (100₽)
+                </button>
+                
+                <div class="activation-area">
+                    <p style="margin-bottom: 10px; color: #c084fc;">🔑 Уже есть ключ?</p>
+                    <input type="text" id="accessCode" class="code-input" placeholder="Введите ключ" autocomplete="off">
+                    <button class="btn btn-outline" id="activateBtn" style="margin-top: 10px;">АКТИВИРОВАТЬ</button>
+                </div>
+
+                <div id="downloadArea" style="display: none; margin-top: 10px;">
+                    <button class="btn btn-primary" id="downloadFileBtn">📥 СКАЧАТЬ КЛИЕНТ</button>
+                </div>
+            </div>
         </div>
-        <h1>Преображение опыта<br>в Minecraft</h1>
-        <div class="description">
-            Paradox Client - чит клиент с множеством функций, предназначающихся для улучшения вашей игры!
+
+        <div class="info-panel">
+            <p style="font-size: 1.2rem; font-weight: 500;">✨ Paradox Client поддерживает Fabric ✨</p>
+            <p style="margin-top: 0.5rem;">Кастомные настройки и эксклюзивные функции на любой вкус.</p>
+            <div class="download-tip">🔥 Версия 2.0 уже доступна - испытай новый уровень Minecraft!</div>
         </div>
-        <div class="highlight">
-            🎮 Отличный интерфейс | Продвинутые визуалы | Огромный функционал
-        </div>
-        <div class="button-group">
-            <button class="btn btn-outline" id="downloadBtn">⬇ СКАЧАТЬ КЛИЕНТ</button>
-        </div>
+
+        <footer>
+            <p>© 2026 Paradox Client - модификация для комфортной игры. Неофициальный проект, вдохновлённый чит клиентами.</p>
+            <p style="margin-top: 0.5rem;">Все торговые марки принадлежат их владельцам. Minecraft - товарный знак Mojang Studios.</p>
+        </footer>
     </div>
 
-
-    <div class="info-panel">
-        <p style="font-size: 1.2rem; font-weight: 500;">✨ Paradox Client поддерживает Fabric ✨</p>
-        <p style="margin-top: 0.5rem;">Кастомные настройки и эксклюзивные функции на любой вкус.</p>
-        <div class="download-tip">🔥 Версия 2.0 уже доступна - испытай новый уровень Minecraft!</div>
+    <div id="unauthorizedMessage" style="text-align: center; padding: 50px; display: none;">
+        <p style="font-size: 1.5rem;">🔐 Для доступа к функциям сайта необходимо авторизоваться</p>
+        <p style="margin-top: 20px;">Нажмите кнопку авторизации в правом верхнем углу</p>
     </div>
-
-    <footer>
-        <p>© 2026 Paradox Client - модификация для комфортной игры. Неофициальный проект, вдохновлённый чит клиентами.</p>
-        <p style="margin-top: 0.5rem;">Все торговые марки принадлежат их владельцам. Minecraft - товарный знак Mojang Studios.</p>
-    </footer>
 </div>
 
 <div id="toastMsg" class="toast-notify">
@@ -358,12 +429,14 @@
 </div>
 
 <script>
-
+    const WORKER_URL = 'https://code.tarsenev1.workers.dev';
+    let currentTelegramId = localStorage.getItem('telegram_id');
+    let currentSessionId = null;
     const toastEl = document.getElementById('toastMsg');
     const toastTextSpan = document.getElementById('toastText');
     const toastIconSpan = document.getElementById('toastIcon');
 
-    function showToast(message, isSuccess = true, icon = '✅') {
+    function showToast(message, icon = '✅') {
         toastTextSpan.innerText = message;
         toastIconSpan.innerText = icon;
         toastEl.classList.add('show');
@@ -371,144 +444,206 @@
             toastEl.classList.remove('show');
         }, 2800);
     }
+    function updateUI() {
+        const mainContent = document.getElementById('mainContent');
+        const unauthorizedMessage = document.getElementById('unauthorizedMessage');
+        
+        if (currentTelegramId) {
+            mainContent.style.display = 'block';
+            unauthorizedMessage.style.display = 'none';
+            checkSubscription();
+        } else {
+            mainContent.style.display = 'none';
+            unauthorizedMessage.style.display = 'block';
+        }
+    }
+    async function checkSubscription() {
+        if (!currentTelegramId) return;
+        
+        try {
+            const response = await fetch(`${WORKER_URL}/check?telegram_id=${currentTelegramId}`);
+            const data = await response.json();
+            
+            if (data.hasAccess) {
+                document.getElementById('downloadArea').style.display = 'block';
+                showToast(data.message, '✅');
+            } else {
+                document.getElementById('downloadArea').style.display = 'none';
+            }
+        } catch (error) {
+            console.error('Ошибка проверки:', error);
+        }
+    }
+    async function checkCode() {
+        if (!currentTelegramId) {
+            showToast('❌ Сначала авторизуйтесь через Telegram!', '⚠️');
+            return;
+        }
+        
+        const code = document.getElementById('accessCode').value.trim();
+        
+        if (!code) {
+            showToast('❌ Введите код', '⚠️');
+            return;
+        }
 
+        showToast('⏳ Проверка кода...', '🔄');
+        
+        try {
+            const response = await fetch(`${WORKER_URL}/activate?code=${encodeURIComponent(code)}&telegram_id=${currentTelegramId}`);
+            const result = await response.json();
 
-
-downloadBtn.addEventListener('click', (e) => {
-    e.preventDefault();
+            if (result.success === true) {
+                showToast('✅ ' + result.message, '🎉');
+                document.getElementById('downloadArea').style.display = 'block';
+                document.getElementById('accessCode').value = '';
+            } else {
+                showToast('❌ ' + result.message, '⚠️');
+            }
+        } catch (error) {
+            console.error('Ошибка:', error);
+            showToast('❌ Ошибка соединения', '⚠️');
+        }
+    }
+    function downloadFile() {
+        if (!currentTelegramId) {
+            showToast('❌ Сначала авторизуйтесь!', '⚠️');
+            return;
+        }
+        window.open(`${WORKER_URL}/download?telegram_id=${currentTelegramId}`, '_blank');
+        showToast('⚡ Загрузка началась!', '📦');
+    }
+    window.onTelegramAuth = function(user) {
+        console.log('Telegram user:', user);
+        
+        currentTelegramId = user.id;
+        localStorage.setItem('telegram_id', user.id);
+        localStorage.setItem('telegram_username', user.username || user.first_name);
+        
+        const container = document.getElementById('telegramLoginContainer');
+        container.innerHTML = `
+            <div class="user-info">
+                <span>👤 ${user.first_name}</span>
+                <button class="telegram-login-btn" onclick="logout()">Выйти</button>
+            </div>
+        `;
+        
+        updateUI();
+        showToast(`✅ Добро пожаловать, ${user.first_name}!`, '👋');
+    };
     
-    const downloadUrl = 'https://github.com/pisya1234/paradox/releases/download/v2.0/paradox.client.upgrade.rar';
-    
-    const a = document.createElement('a');
-    a.href = downloadUrl;
-    a.download = 'paradox.client.upgrade.rar'; 
-    a.target = '_blank'; 
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    
-    showToast('⚡ Загрузка Paradox Client началась!', true, '📦');
-    downloadBtn.style.transform = 'scale(0.98)';
-    setTimeout(() => { downloadBtn.style.transform = ''; }, 150);
-    
-    setTimeout(() => {
-        showToast('✅ Файл успешно загружен!', true, '🎉');
-    }, 1500);
-});
-
-    const navHome = document.getElementById('navHome');
-
-    navHome.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        showToast('🏠 Домой - главная страница Paradox Client', false, '🏠');
-    });
-
-    (function() {
-    const canvas = document.getElementById('snowCanvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-    let snowflakes = [];
-    
-    function resize() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
+    function logout() {
+        localStorage.removeItem('telegram_id');
+        localStorage.removeItem('telegram_username');
+        currentTelegramId = null;
+        currentSessionId = null;
+        
+        updateUI();
+        initTelegramButton();
+        showToast('👋 Вы вышли из аккаунта', '👋');
     }
     
-    function createSnow() {
-        const count = Math.floor(width / 3);
-        for (let i = 0; i < count; i++) {
-            snowflakes.push({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                radius: Math.random() * 4 + 1,
-                speedX: (Math.random() - 0.5) * 0.3,
-                speedY: Math.random() * 1.5 + 0.5,
-                opacity: Math.random() * 0.5 + 0.2
+    function initTelegramButton() {
+        const container = document.getElementById('telegramLoginContainer');
+        if (!currentTelegramId) {
+        container.innerHTML = '';
+        const script = document.createElement('script');
+        script.src = 'https://telegram.org/js/telegram-widget.js?22';
+        script.async = true;
+        script.setAttribute('data-telegram-login', 'paradoxkeybot');
+        script.setAttribute('data-size', 'medium');
+        script.setAttribute('data-radius', '30');
+        script.setAttribute('data-request-access', 'write');
+        script.setAttribute('data-onauth', 'onTelegramAuth(user)');
+        script.setAttribute('data-userpic', 'false');
+        container.appendChild(script);
+    } else {
+        const username = localStorage.getItem('telegram_username') || 'Пользователь';
+        container.innerHTML = `
+            <div class="user-info">
+                <span>👤 ${username}</span>
+                <button class="telegram-login-btn" onclick="logout()">Выйти</button>
+            </div>
+        `;
+    }
+}
+    (function() {
+        const canvas = document.getElementById('snowCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        let snowflakes = [];
+        
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        function createSnow() {
+            const count = Math.floor(width / 10);
+            for (let i = 0; i < count; i++) {
+                snowflakes.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    radius: Math.random() * 4 + 1,
+                    speedX: (Math.random() - 0.5) * 0.3,
+                    speedY: Math.random() * 1.5 + 0.5,
+                    opacity: Math.random() * 0.5 + 0.2
+                });
+            }
+        }
+        function draw() {
+            if (!ctx) return;
+            ctx.clearRect(0, 0, width, height);
+            
+            for (let flake of snowflakes) {
+                ctx.beginPath();
+                ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${flake.opacity})`;
+                ctx.fill();
+                
+                flake.x += flake.speedX;
+                flake.y += flake.speedY;
+                
+                if (flake.x > width) flake.x = 0;
+                if (flake.x < 0) flake.x = width;
+                if (flake.y > height) {
+                    flake.y = 0;
+                    flake.x = Math.random() * width;
+                }
+            }
+            
+            requestAnimationFrame(draw);
+        }
+        
+        window.addEventListener('resize', () => {
+            resize();
+            snowflakes = [];
+            createSnow();
+        });
+        resize();
+        createSnow();
+        draw();
+    })();
+    document.addEventListener('DOMContentLoaded', function() {
+        initTelegramButton();
+        updateUI();
+        
+        const activateBtn = document.getElementById('activateBtn');
+        const accessCodeInput = document.getElementById('accessCode');
+        const downloadFileBtn = document.getElementById('downloadFileBtn');
+        
+        if (activateBtn) activateBtn.addEventListener('click', checkCode);
+        if (accessCodeInput) {
+            accessCodeInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') checkCode();
             });
         }
-    }
-    
-    function draw() {
-        if (!ctx) return;
-        ctx.clearRect(0, 0, width, height);
-        
-        for (let flake of snowflakes) {
-            ctx.beginPath();
-            ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255, 255, 255, ${flake.opacity})`;
-            ctx.fill();
-            
-            flake.x += flake.speedX;
-            flake.y += flake.speedY;
-            
-            if (flake.x > width) flake.x = 0;
-            if (flake.x < 0) flake.x = width;
-            if (flake.y > height) {
-                flake.y = 0;
-                flake.x = Math.random() * width;
-            }
-        }
-        
-        requestAnimationFrame(draw);
-    }
-    
-    window.addEventListener('resize', () => {
-        resize();
-        snowflakes = [];
-        createSnow();
+        if (downloadFileBtn) downloadFileBtn.addEventListener('click', downloadFile);
     });
-    
-    resize();
-    createSnow();
-    draw();
-})();
-
-    const cards = document.querySelectorAll('.feature-card');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0px)';
-            }
-        });
-    }, { threshold: 0.1 });
-    cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.4s ease';
-        observer.observe(card);
-    });
-    setTimeout(() => {
-        cards.forEach(card => {
-            const rect = card.getBoundingClientRect();
-            if(rect.top < window.innerHeight - 100) {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0px)';
-            }
-        });
-    }, 200);
-    
-    const logoDiv = document.querySelector('.logo');
-    if(logoDiv) {
-        logoDiv.addEventListener('click', () => {
-            showToast('Paradox Client: улучшение вашей игры в Minecraft', false, '🌀');
-        });
-    }
-    
-    const footer = document.querySelector('footer');
-    if(footer) {
-        footer.addEventListener('dblclick', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            showToast('🚀 Возвращение в эпицентр графического совершенства', true, '⬆️');
-        });
-    }
-
 </script>
 </body>
 </html>
