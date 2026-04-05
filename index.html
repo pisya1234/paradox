@@ -329,6 +329,36 @@
             transform: translateX(-50%) translateY(0px);
         }
 
+        .btn-wrapper {
+    position: relative;
+    display: inline-block;
+}
+.btn-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    width: 200px;
+    background: #1a0b2e;
+    color: #c084fc;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 12px;
+    border: 1px solid #a855f7;
+    position: absolute;
+    z-index: 10;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    font-weight: normal;
+    white-space: nowrap;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+.btn-wrapper:hover .btn-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
         @media (max-width: 700px) {
             .container {
                 padding: 1.5rem;
@@ -392,16 +422,23 @@
                 🎮 Отличный интерфейс | Продвинутые визуалы | Огромный функционал
             </div>
             
-            <div class="button-group">
-                <button class="btn btn-primary" id="buyBtn" onclick="window.open('https://funpay.com/', '_blank')">
-                    💎 КУПИТЬ КЛЮЧ (100₽)
-                </button>
-                
-                <div class="activation-area">
-                    <p style="margin-bottom: 10px; color: #c084fc;">🔑 Уже есть ключ?</p>
-                    <input type="text" id="accessCode" class="code-input" placeholder="Введите ключ" autocomplete="off">
-                    <button class="btn btn-outline" id="activateBtn" style="margin-top: 10px;">АКТИВИРОВАТЬ</button>
-                </div>
+     <div class="button-group">
+     <div class="btn-wrapper">
+        <button class="btn btn-primary" id="buyBtn" onclick="window.open('https://funpay.com/', '_blank')">
+            🔑 КУПИТЬ КЛЮЧ
+        </button>
+        <div class="btn-tooltip">
+            🗓️ Месяц — 1$/45₴/80₽<br>
+            ♾️ Всегда — 3$/130₴/240₽
+        </div>
+    </div>
+    
+    <!-- БЛОК АКТИВАЦИИ (ОТДЕЛЬНО) -->
+    <div class="activation-area">
+        <p style="margin-bottom: 10px; color: #c084fc;">🔑 Уже есть ключ?</p>
+        <input type="text" id="accessCode" class="code-input" placeholder="Введите ключ" autocomplete="off">
+        <button class="btn btn-outline" id="activateBtn" style="margin-top: 10px;">АКТИВИРОВАТЬ</button>
+    </div>
 
                 <div id="downloadArea" style="display: none; margin-top: 10px;">
                     <button class="btn btn-primary" id="downloadFileBtn">📥 СКАЧАТЬ КЛИЕНТ</button>
