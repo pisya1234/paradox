@@ -95,7 +95,7 @@
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             align-items: center;
             flex-wrap: wrap;
         }
@@ -111,6 +111,35 @@
         .nav-links a:hover {
             color: white;
             background: rgba(168, 85, 247, 0.3);
+        }
+
+        /* Кнопки языков */
+        .language-switcher {
+            display: flex;
+            gap: 5px;
+            margin-left: 10px;
+        }
+
+        .lang-btn {
+            background: rgba(168, 85, 247, 0.2);
+            border: 1px solid rgba(168, 85, 247, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: rgba(168, 85, 247, 0.5);
+            transform: scale(1.05);
+        }
+
+        .lang-btn.active {
+            background: #a855f7;
+            border-color: #a855f7;
         }
 
         .telegram-login-btn {
@@ -222,6 +251,7 @@
             transition: opacity 0.2s ease, visibility 0.2s ease;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             pointer-events: none;
+            white-space: nowrap;
         }
         .btn-wrapper:hover .btn-tooltip {
             visibility: visible;
@@ -353,6 +383,7 @@
             .highlight { text-align: left; }
             .code-input { max-width: 200px; font-size: 0.85rem; }
             .activation-area { padding: 1rem; }
+            .language-switcher { margin-left: 0; margin-top: 5px; }
         }
     </style>
 </head>
@@ -365,9 +396,14 @@
     <div class="header">
         <div class="logo">PARADOX CLIENT</div>
         <div class="nav-links">
-            <a href="index.html">Главная</a>
-            <a href="functions.html">Функции</a>
-            <a href="https://t.me/kimp1ntyao666" target="_blank">Сообщество</a>
+            <a href="index.html" id="navHome">Главная</a>
+            <a href="functions.html" id="navFunctions">Функции</a>
+            <a href="https://t.me/kimp1ntyao666" target="_blank" id="navCommunity">Сообщество</a>
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="ru">🇷🇺 RU</button>
+                <button class="lang-btn" data-lang="ua">🇺🇦 UA</button>
+                <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+            </div>
             <div id="telegramLoginContainer"></div>
         </div>
     </div>
@@ -375,15 +411,15 @@
     <div id="mainContent" style="display: none;">
         <div class="hero">
             <div class="hero-badge">
-                <span>⚡ ВЫСШАЯ ОПТИМИЗАЦИЯ</span>
+                <span id="badge1">⚡ ВЫСШАЯ ОПТИМИЗАЦИЯ</span>
                 <span>✦</span>
-                <span>НОВЫЙ УРОВЕНЬ ИГРЫ</span>
+                <span id="badge2">НОВЫЙ УРОВЕНЬ ИГРЫ</span>
             </div>
-            <h1>Преображение опыта<br>в Minecraft</h1>
-            <div class="description">
+            <h1 id="title">Преображение опыта<br>в Minecraft</h1>
+            <div class="description" id="description">
                 Paradox Client - чит клиент с множеством функций, предназначающихся для улучшения вашей игры!
             </div>
-            <div class="highlight">
+            <div class="highlight" id="highlight">
                 🎮 Отличный интерфейс | Продвинутые визуалы | Огромный функционал
             </div>
             
@@ -392,14 +428,13 @@
                     <button class="btn btn-primary" id="buyBtn" onclick="window.open('https://funpay.com/users/462499/', '_blank')">
                         💎 КУПИТЬ КЛЮЧ
                     </button>
-                    <div class="btn-tooltip">
-                        🗓️ Месяц — 1$/45₴/80₽<br>
-                        ♾️ Всегда — 3$/130₴/240₽
+                    <div class="btn-tooltip" id="tooltip">
+                        🗓️ Месяц — 1$/45₴/80₽<br>♾️ Всегда — 3$/130₴/240₽
                     </div>
                 </div>
                 
                 <div class="activation-area">
-                    <p style="margin-bottom: 10px; color: #c084fc;">🔑 Уже есть ключ?</p>
+                    <p style="margin-bottom: 10px; color: #c084fc;" id="alreadyHave">🔑 Уже есть ключ?</p>
                     <input type="text" id="accessCode" class="code-input" placeholder="Введите ключ" autocomplete="off">
                     <button class="btn btn-outline" id="activateBtn" style="margin-top: 10px;">АКТИВИРОВАТЬ</button>
                 </div>
@@ -411,20 +446,20 @@
         </div>
 
         <div class="info-panel">
-            <p style="font-size: 1.2rem; font-weight: 500;">✨ Paradox Client поддерживает Fabric ✨</p>
-            <p style="margin-top: 0.5rem;">Кастомные настройки и эксклюзивные функции на любой вкус.</p>
-            <div class="download-tip">🔥 Версия 2.0 уже доступна - испытай новый уровень Minecraft!</div>
+            <p style="font-size: 1.2rem; font-weight: 500;" id="supportTitle">✨ Paradox Client поддерживает Fabric ✨</p>
+            <p style="margin-top: 0.5rem;" id="supportDesc">Кастомные настройки и эксклюзивные функции на любой вкус.</p>
+            <div class="download-tip" id="versionTip">🔥 Версия 2.0 уже доступна - испытай новый уровень Minecraft!</div>
         </div>
 
         <footer>
-            <p>© 2026 Paradox Client - модификация для комфортной игры. Неофициальный проект, вдохновлённый чит клиентами.</p>
-            <p style="margin-top: 0.5rem;">Все торговые марки принадлежат их владельцам. Minecraft - товарный знак Mojang Studios.</p>
+            <p id="footer1">© 2026 Paradox Client - модификация для комфортной игры. Неофициальный проект, вдохновлённый чит клиентами.</p>
+            <p style="margin-top: 0.5rem;" id="footer2">Все торговые марки принадлежат их владельцам. Minecraft - товарный знак Mojang Studios.</p>
         </footer>
     </div>
 
     <div id="unauthorizedMessage" style="text-align: center; padding: 50px; display: none;">
-        <p style="font-size: 1.5rem;">🔐 Для доступа к функциям сайта необходимо авторизоваться</p>
-        <p style="margin-top: 20px;">Нажмите кнопку авторизации в правом верхнем углу</p>
+        <p style="font-size: 1.5rem;" id="unauthTitle">🔐 Для доступа к функциям сайта необходимо авторизоваться</p>
+        <p style="margin-top: 20px;" id="unauthText">Нажмите кнопку авторизации в правом верхнем углу</p>
     </div>
 </div>
 
@@ -434,6 +469,123 @@
 </div>
 
 <script>
+    const translations = {
+        ru: {
+            nav_home: "Главная",
+            nav_functions: "Функции",
+            nav_community: "Сообщество",
+            badge1: "⚡ ВЫСШАЯ ОПТИМИЗАЦИЯ",
+            badge2: "НОВЫЙ УРОВЕНЬ ИГРЫ",
+            title: "Преображение опыта<br>в Minecraft",
+            description: "Paradox Client - чит клиент с множеством функций, предназначающихся для улучшения вашей игры!",
+            highlight: "🎮 Отличный интерфейс | Продвинутые визуалы | Огромный функционал",
+            buy_btn: "💎 КУПИТЬ КЛЮЧ",
+            tooltip: "🗓️ Месяц — 1$/45₴/80₽<br>♾️ Всегда — 3$/130₴/240₽",
+            already_have: "🔑 Уже есть ключ?",
+            placeholder: "Введите ключ",
+            activate_btn: "АКТИВИРОВАТЬ",
+            download_btn: "📥 СКАЧАТЬ КЛИЕНТ",
+            support_title: "✨ Paradox Client поддерживает Fabric ✨",
+            support_desc: "Кастомные настройки и эксклюзивные функции на любой вкус.",
+            version_tip: "🔥 Версия 2.0 уже доступна - испытай новый уровень Minecraft!",
+            footer1: "© 2026 Paradox Client - модификация для комфортной игры. Неофициальный проект, вдохновлённый чит клиентами.",
+            footer2: "Все торговые марки принадлежат их владельцам. Minecraft - товарный знак Mojang Studios.",
+            unauth_title: "🔐 Для доступа к функциям сайта необходимо авторизоваться",
+            unauth_text: "Нажмите кнопку авторизации в правом верхнем углу"
+        },
+        ua: {
+            nav_home: "Головна",
+            nav_functions: "Функції",
+            nav_community: "Спільнота",
+            badge1: "⚡ ВИЩА ОПТИМІЗАЦІЯ",
+            badge2: "НОВИЙ РІВЕНЬ ГРИ",
+            title: "Перетворення досвіду<br>в Minecraft",
+            description: "Paradox Client - чит клієнт з безліччю функцій, призначених для покращення вашої гри!",
+            highlight: "🎮 Відмінний інтерфейс | Просунуті візуали | Величезний функціонал",
+            buy_btn: "💎 КУПИТИ КЛЮЧ",
+            tooltip: "🗓️ Місяць — 1$/45₴/80₽<br>♾️ Назавжди — 3$/130₴/240₽",
+            already_have: "🔑 Вже є ключ?",
+            placeholder: "Введіть ключ",
+            activate_btn: "АКТИВУВАТИ",
+            download_btn: "📥 ЗАВАНТАЖИТИ КЛІЄНТ",
+            support_title: "✨ Paradox Client підтримує Fabric ✨",
+            support_desc: "Користувацькі налаштування та ексклюзивні функції на будь-який смак.",
+            version_tip: "🔥 Версія 2.0 вже доступна - випробуй новий рівень Minecraft!",
+            footer1: "© 2026 Paradox Client - модифікація для комфортної гри. Неофіційний проект, натхненний чит клієнтами.",
+            footer2: "Всі торгові марки належать їх власникам. Minecraft - товарний знак Mojang Studios.",
+            unauth_title: "🔐 Для доступу до функцій сайту необхідно авторизуватися",
+            unauth_text: "Натисніть кнопку авторизації у правому верхньому куті"
+        },
+        en: {
+            nav_home: "Home",
+            nav_functions: "Features",
+            nav_community: "Community",
+            badge1: "⚡ HIGHEST OPTIMIZATION",
+            badge2: "NEW GAME LEVEL",
+            title: "Experience transformation<br>in Minecraft",
+            description: "Paradox Client - cheat client with many features designed to improve your game!",
+            highlight: "🎮 Great interface | Advanced visuals | Huge functionality",
+            buy_btn: "💎 BUY KEY",
+            tooltip: "🗓️ Month — 1$/45₴/80₽<br>♾️ Forever — 3$/130₴/240₽",
+            already_have: "🔑 Already have a key?",
+            placeholder: "Enter key",
+            activate_btn: "ACTIVATE",
+            download_btn: "📥 DOWNLOAD CLIENT",
+            support_title: "✨ Paradox Client supports Fabric ✨",
+            support_desc: "Custom settings and exclusive features for every taste.",
+            version_tip: "🔥 Version 2.0 is already available - experience a new level of Minecraft!",
+            footer1: "© 2026 Paradox Client - modification for comfortable gameplay. Unofficial project inspired by cheat clients.",
+            footer2: "All trademarks are property of their respective owners. Minecraft is a trademark of Mojang Studios.",
+            unauth_title: "🔐 You need to log in to access site features",
+            unauth_text: "Click the authorization button in the top right corner"
+        }
+    };
+
+    let currentLang = localStorage.getItem('language') || 'ru';
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('language', lang);
+        
+        document.getElementById('navHome').textContent = translations[lang].nav_home;
+        document.getElementById('navFunctions').textContent = translations[lang].nav_functions;
+        document.getElementById('navCommunity').textContent = translations[lang].nav_community;
+        document.getElementById('badge1').innerHTML = translations[lang].badge1;
+        document.getElementById('badge2').innerHTML = translations[lang].badge2;
+        document.getElementById('title').innerHTML = translations[lang].title;
+        document.getElementById('description').textContent = translations[lang].description;
+        document.getElementById('highlight').innerHTML = translations[lang].highlight;
+        document.getElementById('buyBtn').innerHTML = translations[lang].buy_btn;
+        document.getElementById('tooltip').innerHTML = translations[lang].tooltip;
+        document.getElementById('alreadyHave').innerHTML = translations[lang].already_have;
+        document.getElementById('accessCode').placeholder = translations[lang].placeholder;
+        document.getElementById('activateBtn').textContent = translations[lang].activate_btn;
+        if (document.getElementById('downloadFileBtn')) {
+            document.getElementById('downloadFileBtn').innerHTML = translations[lang].download_btn;
+        }
+        document.getElementById('supportTitle').innerHTML = translations[lang].support_title;
+        document.getElementById('supportDesc').textContent = translations[lang].support_desc;
+        document.getElementById('versionTip').textContent = translations[lang].version_tip;
+        document.getElementById('footer1').textContent = translations[lang].footer1;
+        document.getElementById('footer2').textContent = translations[lang].footer2;
+        document.getElementById('unauthTitle').innerHTML = translations[lang].unauth_title;
+        document.getElementById('unauthText').innerHTML = translations[lang].unauth_text;
+        
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            if (btn.dataset.lang === lang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
+
+    setLanguage(currentLang);
+
     const WORKER_URL = 'https://code.tarsenev1.workers.dev';
     let currentTelegramId = localStorage.getItem('telegram_id');
     let currentSessionId = null;
