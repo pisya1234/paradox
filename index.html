@@ -71,7 +71,7 @@
             <a href="functions.html" id="navFunctions">Функции</a>
             <a href="https://t.me/kimp1ntyao666" target="_blank" id="navCommunity">Сообщество</a>
             <div class="language-dropdown">
-                <button class="lang-dropbtn" id="langBtn">🌐 Язык ▼</button>
+                <button class="lang-dropbtn" id="langBtn">Язык ▼</button>
                 <div class="lang-dropdown-content">
                     <button data-lang="ru">🇷🇺 Русский</button>
                     <button data-lang="ua">🇺🇦 Українська</button>
@@ -139,7 +139,7 @@
     };
 
     let currentLang = localStorage.getItem('language') || 'ru';
-    function updateLangButtonText(lang) { const langBtn = document.getElementById('langBtn'); const langNames = { ru: '🇷🇺 Русский', ua: '🇺🇦 Українська', en: 'ᴇɴ English' }; if (langBtn) { langBtn.innerHTML = `🌐 ${langNames[lang]} ▼`; } }
+    function updateLangButtonText(lang) { const langBtn = document.getElementById('langBtn'); const langNames = { ru: '🇷🇺 Русский', ua: '🇺🇦 Українська', en: '🇬🇧 English' }; if (langBtn) { langBtn.innerHTML = `${langNames[lang]} ▼`; } }
     function setLanguage(lang) {
         currentLang = lang; localStorage.setItem('language', lang);
         document.getElementById('navHome').textContent = translations[lang].nav_home;
