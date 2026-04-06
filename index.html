@@ -139,7 +139,7 @@
     };
 
     let currentLang = localStorage.getItem('language') || 'ru';
-    function updateLangButtonText(lang) { const langBtn = document.getElementById('langBtn'); const langNames = { ru: '🇷🇺 Русский', ua: '🇺🇦 Українська', en: '🇬🇧 English' }; if (langBtn) { langBtn.innerHTML = `🌐 ${langNames[lang]} ▼`; } }
+    function updateLangButtonText(lang) { const langBtn = document.getElementById('langBtn'); const langNames = { ru: '🇷🇺 Русский', ua: '🇺🇦 Українська', en: 'ᴇɴ English' }; if (langBtn) { langBtn.innerHTML = `🌐 ${langNames[lang]} ▼`; } }
     function setLanguage(lang) {
         currentLang = lang; localStorage.setItem('language', lang);
         document.getElementById('navHome').textContent = translations[lang].nav_home;
