@@ -751,17 +751,29 @@
     }
 
     function initTelegramButton() {
-        const container = document.getElementById('telegramLoginContainer');
+    const container = document.getElementById('telegramLoginContainer');
         if (!currentTelegramId) {
-            container.innerHTML = `
-                <button class="telegram-login-btn" id="simpleTelegramBtn">
-                    📱 Войти через Telegram
-                </button>
-            `;
-            document.getElementById('simpleTelegramBtn').addEventListener('click', () => {
-                window.open('https://t.me/paradoxkeybot?start=auth', '_blank');
-                showToast('📱 Напишите боту команду /start и авторизуйтесь', '🤖');
-            });
+        container.innerHTML = '';
+        const script = document.createElement('script');
+        script.src = 'https://telegram.org/js/telegram-widget.js?22';
+        script.async = true;
+        script.setAttribute('data-telegram-login', 'paradoxkeybot');
+        script.setAttribute('data-size', 'medium');
+        script.setAttribute('data-radius', '30');
+        script.setAttribute('data-request-access', 'write');
+        script.setAttribute('data-onauth', 'onTelegramAuth(user)');
+        script.setAttribute('data-userpic', 'false');
+        container.appendChild(script);
+    } else {
+        const username = localStorage.getItem('telegram_username') || 'Пользователь';
+        container.innerHTML = `
+            <div class="user-info">
+                <span>👤 ${username}</span>
+                <button class="telegram-login-btn" onclick="logout()">Выйти</button>
+            </div>
+        `;
+    }
+}
         } else {
             const username = localStorage.getItem('telegram_username') || 'Пользователь';
             container.innerHTML = `
