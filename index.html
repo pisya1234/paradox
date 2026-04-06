@@ -113,33 +113,81 @@
             background: rgba(168, 85, 247, 0.3);
         }
 
-        /* Кнопки языков */
-        .language-switcher {
-            display: flex;
-            gap: 5px;
-            margin-left: 10px;
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
         }
 
-        .lang-btn {
+        .lang-dropbtn {
             background: rgba(168, 85, 247, 0.2);
             border: 1px solid rgba(168, 85, 247, 0.5);
             color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
+            padding: 8px 16px;
+            border-radius: 30px;
             cursor: pointer;
-            font-size: 0.7rem;
+            font-size: 0.85rem;
             font-weight: 500;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .lang-btn:hover {
+        .lang-dropbtn:hover {
             background: rgba(168, 85, 247, 0.5);
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
-        .lang-btn.active {
+        .lang-dropdown-content {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 45px;
+            right: 0;
+            background: #1a0b2e;
+            min-width: 140px;
+            border-radius: 16px;
+            border: 1px solid rgba(168, 85, 247, 0.5);
+            z-index: 100;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .language-dropdown:hover .lang-dropdown-content {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .lang-dropdown-content button {
+            color: #e9d5ff;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: 0.2s;
+            border-radius: 0;
+        }
+
+        .lang-dropdown-content button:first-child {
+            border-radius: 16px 16px 0 0;
+        }
+
+        .lang-dropdown-content button:last-child {
+            border-radius: 0 0 16px 16px;
+        }
+
+        .lang-dropdown-content button:hover {
+            background: rgba(168, 85, 247, 0.3);
+        }
+
+        .lang-dropdown-content button.active {
             background: #a855f7;
-            border-color: #a855f7;
+            color: white;
         }
 
         .telegram-login-btn {
@@ -235,16 +283,16 @@
         .btn-tooltip {
             visibility: hidden;
             opacity: 0;
-            width: 200px;
+            width: 220px;
             background: #1a0b2e;
             color: #c084fc;
             text-align: center;
-            padding: 8px 12px;
+            padding: 10px 12px;
             border-radius: 12px;
             border: 1px solid #a855f7;
             position: absolute;
             z-index: 10;
-            bottom: -50px;
+            bottom: -70px;
             left: 50%;
             transform: translateX(-50%);
             font-size: 0.8rem;
@@ -383,7 +431,7 @@
             .highlight { text-align: left; }
             .code-input { max-width: 200px; font-size: 0.85rem; }
             .activation-area { padding: 1rem; }
-            .language-switcher { margin-left: 0; margin-top: 5px; }
+            .btn-tooltip { white-space: normal; width: 180px; bottom: -85px; }
         }
     </style>
 </head>
@@ -399,11 +447,16 @@
             <a href="index.html" id="navHome">Главная</a>
             <a href="functions.html" id="navFunctions">Функции</a>
             <a href="https://t.me/kimp1ntyao666" target="_blank" id="navCommunity">Сообщество</a>
-            <div class="language-switcher">
-                <button class="lang-btn" data-lang="ru"> RU</button>
-                <button class="lang-btn" data-lang="ua"> UA</button>
-                <button class="lang-btn" data-lang="en"> EN</button>
+            
+            <div class="language-dropdown">
+                <button class="lang-dropbtn" id="langBtn">🌐 Язык ▼</button>
+                <div class="lang-dropdown-content">
+                    <button data-lang="ru">🇷🇺 Русский</button>
+                    <button data-lang="ua">🇺🇦 Українська</button>
+                    <button data-lang="en">🇬🇧 English</button>
+                </div>
             </div>
+            
             <div id="telegramLoginContainer"></div>
         </div>
     </div>
@@ -429,7 +482,7 @@
                         💎 КУПИТЬ КЛЮЧ
                     </button>
                     <div class="btn-tooltip" id="tooltip">
-                        🗓️ Месяц - 1$/45₴/80₽<br>📅 3 Месяца - 2$/90₴/160₽<br>♾️ Всегда - 3$/130₴/240₽
+                        🗓️ Месяц — 1$/45₴/80₽<br>📅 3 Месяца — 2$/90₴/160₽<br>♾️ Всегда — 3$/130₴/240₽
                     </div>
                 </div>
                 
@@ -480,7 +533,7 @@
             description: "Paradox Client - чит клиент с множеством функций, предназначающихся для улучшения вашей игры!",
             highlight: "🎮 Отличный интерфейс | Продвинутые визуалы | Огромный функционал",
             buy_btn: "💎 КУПИТЬ КЛЮЧ",
-            tooltip: "🗓️ Месяц — 1$/45₴/80₽<br>♾️ Всегда — 3$/130₴/240₽",
+            tooltip: "🗓️ Месяц — 1$/45₴/80₽<br>📅 3 Месяца — 2$/90₴/160₽<br>♾️ Всегда — 3$/130₴/240₽",
             already_have: "🔑 Уже есть ключ?",
             placeholder: "Введите ключ",
             activate_btn: "АКТИВИРОВАТЬ",
@@ -503,7 +556,7 @@
             description: "Paradox Client - чит клієнт з безліччю функцій, призначених для покращення вашої гри!",
             highlight: "🎮 Відмінний інтерфейс | Просунуті візуали | Величезний функціонал",
             buy_btn: "💎 КУПИТИ КЛЮЧ",
-            tooltip: "🗓️ Місяць — 1$/45₴/80₽<br>♾️ Назавжди — 3$/130₴/240₽",
+            tooltip: "🗓️ Місяць — 1$/45₴/80₽<br>📅 3 Місяці — 2$/90₴/160₽<br>♾️ Назавжди — 3$/130₴/240₽",
             already_have: "🔑 Вже є ключ?",
             placeholder: "Введіть ключ",
             activate_btn: "АКТИВУВАТИ",
@@ -526,7 +579,7 @@
             description: "Paradox Client - cheat client with many features designed to improve your game!",
             highlight: "🎮 Great interface | Advanced visuals | Huge functionality",
             buy_btn: "💎 BUY KEY",
-            tooltip: "🗓️ Month — 1$/45₴/80₽<br>♾️ Forever — 3$/130₴/240₽",
+            tooltip: "🗓️ Month — 1$/45₴/80₽<br>📅 3 Months — 2$/90₴/160₽<br>♾️ Forever — 3$/130₴/240₽",
             already_have: "🔑 Already have a key?",
             placeholder: "Enter key",
             activate_btn: "ACTIVATE",
@@ -542,6 +595,18 @@
     };
 
     let currentLang = localStorage.getItem('language') || 'ru';
+
+    function updateLangButtonText(lang) {
+        const langBtn = document.getElementById('langBtn');
+        const langNames = {
+            ru: '🇷🇺 Русский',
+            ua: '🇺🇦 Українська',
+            en: '🇬🇧 English'
+        };
+        if (langBtn) {
+            langBtn.innerHTML = `🌐 ${langNames[lang]} ▼`;
+        }
+    }
 
     function setLanguage(lang) {
         currentLang = lang;
@@ -571,7 +636,9 @@
         document.getElementById('unauthTitle').innerHTML = translations[lang].unauth_title;
         document.getElementById('unauthText').innerHTML = translations[lang].unauth_text;
         
-        document.querySelectorAll('.lang-btn').forEach(btn => {
+        updateLangButtonText(lang);
+        
+        document.querySelectorAll('.lang-dropdown-content button').forEach(btn => {
             if (btn.dataset.lang === lang) {
                 btn.classList.add('active');
             } else {
@@ -580,7 +647,7 @@
         });
     }
 
-    document.querySelectorAll('.lang-btn').forEach(btn => {
+    document.querySelectorAll('.lang-dropdown-content button').forEach(btn => {
         btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
     });
 
@@ -588,7 +655,6 @@
 
     const WORKER_URL = 'https://code.tarsenev1.workers.dev';
     let currentTelegramId = localStorage.getItem('telegram_id');
-    let currentSessionId = null;
     const toastEl = document.getElementById('toastMsg');
     const toastTextSpan = document.getElementById('toastText');
     const toastIconSpan = document.getElementById('toastIcon');
@@ -601,6 +667,7 @@
             toastEl.classList.remove('show');
         }, 2800);
     }
+
     function updateUI() {
         const mainContent = document.getElementById('mainContent');
         const unauthorizedMessage = document.getElementById('unauthorizedMessage');
@@ -614,6 +681,7 @@
             unauthorizedMessage.style.display = 'block';
         }
     }
+
     async function checkSubscription() {
         if (!currentTelegramId) return;
         
@@ -631,6 +699,7 @@
             console.error('Ошибка проверки:', error);
         }
     }
+
     async function checkCode() {
         if (!currentTelegramId) {
             showToast('❌ Сначала авторизуйтесь через Telegram!', '⚠️');
@@ -662,6 +731,7 @@
             showToast('❌ Ошибка соединения', '⚠️');
         }
     }
+
     function downloadFile() {
         if (!currentTelegramId) {
             showToast('❌ Сначала авторизуйтесь!', '⚠️');
@@ -670,50 +740,28 @@
         window.open(`${WORKER_URL}/download?telegram_id=${currentTelegramId}`, '_blank');
         showToast('⚡ Загрузка началась!', '📦');
     }
-    window.onTelegramAuth = function(user) {
-        console.log('Telegram user:', user);
-        
-        currentTelegramId = user.id;
-        localStorage.setItem('telegram_id', user.id);
-        localStorage.setItem('telegram_username', user.username || user.first_name);
-        
-        const container = document.getElementById('telegramLoginContainer');
-        container.innerHTML = `
-            <div class="user-info">
-                <span>👤 ${user.first_name}</span>
-                <button class="telegram-login-btn" onclick="logout()">Выйти</button>
-            </div>
-        `;
-        
-        updateUI();
-        showToast(`✅ Добро пожаловать, ${user.first_name}!`, '👋');
-    };
-    
+
     function logout() {
         localStorage.removeItem('telegram_id');
         localStorage.removeItem('telegram_username');
         currentTelegramId = null;
-        currentSessionId = null;
-        
         updateUI();
         initTelegramButton();
         showToast('👋 Вы вышли из аккаунта', '👋');
     }
-    
+
     function initTelegramButton() {
         const container = document.getElementById('telegramLoginContainer');
         if (!currentTelegramId) {
-            container.innerHTML = '';
-            const script = document.createElement('script');
-            script.src = 'https://telegram.org/js/telegram-widget.js?22';
-            script.async = true;
-            script.setAttribute('data-telegram-login', 'paradoxkeybot');
-            script.setAttribute('data-size', 'medium');
-            script.setAttribute('data-radius', '30');
-            script.setAttribute('data-request-access', 'write');
-            script.setAttribute('data-onauth', 'onTelegramAuth(user)');
-            script.setAttribute('data-userpic', 'false');
-            container.appendChild(script);
+            container.innerHTML = `
+                <button class="telegram-login-btn" id="simpleTelegramBtn">
+                    📱 Войти через Telegram
+                </button>
+            `;
+            document.getElementById('simpleTelegramBtn').addEventListener('click', () => {
+                window.open('https://t.me/paradoxkeybot?start=auth', '_blank');
+                showToast('📱 Напишите боту команду /start и авторизуйтесь', '🤖');
+            });
         } else {
             const username = localStorage.getItem('telegram_username') || 'Пользователь';
             container.innerHTML = `
@@ -724,6 +772,7 @@
             `;
         }
     }
+
     (function() {
         const canvas = document.getElementById('snowCanvas');
         if (!canvas) return;
@@ -785,6 +834,7 @@
         createSnow();
         draw();
     })();
+
     document.addEventListener('DOMContentLoaded', function() {
         initTelegramButton();
         updateUI();
